@@ -1,0 +1,54 @@
+---
+const routes = [
+	{
+		path: "/",
+		name: "Index",
+	},
+	{
+		path: "/about",
+		name: "About",
+	},
+	{
+		path: "/blog",
+		name: "Blog",
+	},
+	{
+		path: "/posts/first-post",
+		name: "Post 1",
+	},
+	{
+		path: "/posts/post-2",
+		name: "Post 2",
+	},
+	{
+		path: "/posts/post-3",
+		name: "Post 3",
+	},
+];
+
+const themeColor = "#54657b";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<style define:vars={{ themeColor, fontWeight, textCase }}>
+	.route {
+		color: red;
+		color: var(--themeColor);
+		font-weight: var(--fontWeight);
+		text-transform: var(--textCase);
+	}
+</style>
+
+<ul>
+  {
+    routes.map((r) => (
+      <li>
+        <a class="route" href={r.path}>
+          {" "}
+          {r.name}{" "}
+        </a>
+      </li>
+    ))
+  }
+</ul>

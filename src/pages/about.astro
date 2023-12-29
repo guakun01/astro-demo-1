@@ -1,41 +1,13 @@
 ---
 import "../styles/reset.css";
 
+import Nav from "../components/Navigation.astro";
+
 const pageTitle = "Minions Bob";
 const minions = {
 	name: "bob",
 	hobby: "mischief",
 };
-const routes = [
-	{
-		path: "/",
-		name: "Index",
-	},
-	{
-		path: "/about",
-		name: "About",
-	},
-	{
-		path: "/blog",
-		name: "Blog",
-	},
-	{
-		path: "/posts/first-post",
-		name: "Post 1",
-	},
-	{
-		path: "/posts/post-2",
-		name: "Post 2",
-	},
-	{
-		path: "/posts/post-3",
-		name: "Post 3",
-	},
-];
-
-const themeColor = "#54657b";
-const fontWeight = "bold";
-const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -44,31 +16,13 @@ const textCase = "uppercase";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<style define:vars={{ themeColor, fontWeight, textCase }}>
-			.route {
-				color: red;
-				color: var(--themeColor);
-				font-weight: var(--fontWeight);
-				text-transform: var(--textCase);
-			}
-		</style>
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<ul>
-			{
-				routes.map((r) => (
-					<li>
-						<a class="route" href={r.path}>
-							{" "}
-							{r.name}{" "}
-						</a>
-					</li>
-				))
-			}
-		</ul>
+		
 
 		<h1>{pageTitle}</h1>
+		<Nav />
 
 		<div>hi</div>
 		<p>hi hi <span>hihihi</span></p>
