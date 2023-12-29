@@ -1,5 +1,41 @@
 ---
+import "../styles/reset.css";
 
+const pageTitle = "Minions Bob";
+const minions = {
+	name: "bob",
+	hobby: "mischief",
+};
+const routes = [
+	{
+		path: "/",
+		name: "Index",
+	},
+	{
+		path: "/about",
+		name: "About",
+	},
+	{
+		path: "/blog",
+		name: "Blog",
+	},
+	{
+		path: "/posts/first-post",
+		name: "Post 1",
+	},
+	{
+		path: "/posts/post-2",
+		name: "Post 2",
+	},
+	{
+		path: "/posts/post-3",
+		name: "Post 3",
+	},
+];
+
+const themeColor = "#54657b";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -8,23 +44,35 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<style define:vars={{ themeColor, fontWeight, textCase }}>
+			.route {
+				color: red;
+				color: var(--themeColor);
+				font-weight: var(--fontWeight);
+				text-transform: var(--textCase);
+			}
+		</style>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<ul>
-			<li>
-				<a href="/"> Index</a>
-			</li>
-			<li>
-				<a href="/about"> About</a>
-			</li>
-			<li>
-				<a href="/blog"> Blog</a>
-			</li>
+			{
+				routes.map((r) => (
+					<li>
+						<a class="route" href={r.path}>
+							{" "}
+							{r.name}{" "}
+						</a>
+					</li>
+				))
+			}
 		</ul>
-		<h1>about</h1>
+
+		<h1>{pageTitle}</h1>
+
 		<div>hi</div>
 		<p>hi hi <span>hihihi</span></p>
+		<p>I am {minions.name}, i like {minions.hobby}.</p>
 		<section>hi hi <span>hihihi</span></section>
 	</body>
 </html>
