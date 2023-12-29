@@ -1,124 +1,90 @@
 ---
-const routes = [
-	{
-		path: "/",
-		name: "Index",
-	},
-	{
-		path: "/about",
-		name: "About",
-	},
-	{
-		path: "/blog",
-		name: "Blog",
-	},
-	{
-		path: "/posts/first-post",
-		name: "Post 1",
-	},
-	{
-		path: "/posts/post-2",
-		name: "Post 2",
-	},
-	{
-		path: "/posts/post-3",
-		name: "Post 3",
-	},
-];
-
 const themeColor = "#54657b";
 const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
 <style define:vars={{ themeColor, fontWeight, textCase }}>
-	.route {
-		color: red;
-		color: var(--themeColor);
-		font-weight: var(--fontWeight);
-		text-transform: var(--textCase);
-	}
+  .route {
+    color: red;
+    color: var(--themeColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
 </style>
 
 <ul class="nav-links">
-  {
-    routes.map((r) => (
-      <li>
-        <a class="route" href={r.path}>
-          {" "}
-          {r.name}{" "}
-        </a>
-      </li>
-    ))
-  }
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <a href="/blog/">Blog</a>
+  <a href="/tags/">Tags</a>
 </ul>
 
 <style>
-	html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
-}
+  html {
+    background-color: #f1f5f9;
+    font-family: sans-serif;
+  }
 
-body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
-}
+  body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80ch;
+    padding: 1rem;
+    line-height: 1.5;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
-}
+  h1 {
+    margin: 1rem 0;
+    font-size: 2.5rem;
+  }
 
-/* nav styles */
+  /* nav styles */
 
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
-  margin: 0;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #ff9776;
-}
-
-.expanded {
-  display: unset;
-}
-
-@media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
+    width: 100%;
+    top: 5rem;
+    left: 48px;
+    background-color: #ff9776;
+    display: none;
+    margin: 0;
   }
 
   .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
-}
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: #ff9776;
+  }
+
+  .expanded {
+    display: unset;
+  }
+
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      margin-left: 5em;
+      display: block;
+      position: static;
+      width: auto;
+      background: none;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding: 15px 20px;
+    }
+  }
 </style>
